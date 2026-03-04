@@ -49,10 +49,10 @@ mse = mean_squared_error(y_test, predicted)
 rmse=np.sqrt(mse)
 print("rmse:", rmse)
 
-try:
-  with open("random-forest_model.pkl","wb") as model_pkl:
-    pickle.dump(model,model_pkl)
-    print("random forest model sucessfully saved..")
-except Exception as e:
-  print("failed to pickle model")
+# try:
+#   with open("random-forest_model.pkl","wb") as model_pkl:
+#     pickle.dump(model,model_pkl)
+#     print("random forest model sucessfully saved..")
+# except Exception as e:
+#   print("failed to pickle model")
 
