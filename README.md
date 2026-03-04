@@ -56,5 +56,5 @@ numpy
 
 ```bash
 git clone https://github.com/Patrick-250/Insurance_premium_predictor.git
-cd insurance-premium-predictor
-pip install -r requirements.txt
+cd app
+pip install -r requirements.txt # can optionaly create virtual environment for dependencies...
