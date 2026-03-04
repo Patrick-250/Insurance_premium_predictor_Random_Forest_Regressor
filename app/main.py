@@ -1,7 +1,9 @@
 from fastapi import FastAPI
+from fastapi.responses import PlainTextResponse
 import pickle
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 import pandas as pd
+from pathlib import Path
 
 
 app=FastAPI()
@@ -10,6 +12,7 @@ app=FastAPI()
 with open("./model/random-forest_model.pkl","rb") as model_file:
   model=pickle.load(model_file)
 
+README_PATH=Path(__file__).parent.parent / "README.md"
 
 class DriverProfile(BaseModel):
     age: int
@@ -45,5 +48,9 @@ def predict_price(request: DriverProfile):
         print(str(e))
         return "Sorry, there was error while trying to get you the premium.. please call our customer services"
    
-   
-
+@app.get("/", response_class=PlainTextResponse)
+def get_info():
+    if README_PATH.exists():
+        return README_PATH.read_text(encoding="utf-8")
+    else:
+        return "Insurance Premium Predictor"
