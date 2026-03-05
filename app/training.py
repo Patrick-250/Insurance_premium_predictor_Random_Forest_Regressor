@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.ensemble import RandomForestRegressor
 
 # Load data
-data = pd.read_csv(r'C:\Users\Learner_XZHCG307\os_projects\ML_docker\app\policy_premium_dataset.csv')
+data = pd.read_csv("./policy_premium_dataset.csv")
 
 # Features & target
 X = data.drop("policy_premium", axis=1)
